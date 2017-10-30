@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def life(space):
+def live(space):
     """
     :param space: two-dimensional matrix (non-empty)
     :return: next tick of game space
