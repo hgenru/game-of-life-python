@@ -1,6 +1,22 @@
 import numpy as np
 from scipy.ndimage.filters import generic_filter
 
+class Game:
+    def Render(self, space):
+        pass
+
+    def InterruptRender(self):
+        pass
+
+    def IsContinueRendering(self):
+        return True
+
+    def StartSimulation(self, space, live_func):
+        while self.IsContinueRendering():
+            modified_space = live_func(space)
+            self.Render(modified_space)
+
+
 
 def live(space):
     """
