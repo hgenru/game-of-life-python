@@ -89,3 +89,27 @@ def test_beacon_should_live():
         "Beacon should live"
     )
 
+
+def test_glider_should_fly():
+    space = np.array([
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 1, 0, 1],
+        [0, 0, 0, 0, 1, 1],
+    ])
+    expected = np.array([
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1, 1],
+    ])
+    print(live(space))
+    ok_(
+        np.array_equal(live(space), expected),
+        "Glider should fly"
+    )
+
