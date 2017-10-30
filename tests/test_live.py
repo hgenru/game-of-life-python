@@ -89,3 +89,18 @@ def test_beacon_should_live():
         "Beacon should live"
     )
 
+def test_basic_buffer_bug():
+    space = np.array([
+        [0, 1, 1],
+        [1, 1, 0],
+        [0, 0, 1],
+    ])
+    expected = np.array([
+        [1, 1, 1],
+        [1, 0, 0],
+        [0, 1, 0],
+    ])
+    ok_(
+        np.array_equal(live(space), expected),
+        "test_basic_buffer_bug not completed"
+    )
