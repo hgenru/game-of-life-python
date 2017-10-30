@@ -90,7 +90,28 @@ def test_beacon_should_live():
     )
 
 
-def test_glider_should_fly():
+def test_glder_should_fly():
+    space = np.array([
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0],
+    ])
+    expected = np.array([
+        [0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 0],
+        [0, 1, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+    ])
+    ok_(
+        np.array_equal(live(space), expected),
+        "Glider should fly"
+    )
+
+
+def test_glider_should_fly_trough_the_edge():
     space = np.array([
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
@@ -110,27 +131,5 @@ def test_glider_should_fly():
     print(live(space))
     ok_(
         np.array_equal(live(space), expected),
-        "Glider should fly"
+        "Glider should fly through the edge"
     )
-
-
-def test_glder_should_fly_to_corner():
-    space = np.array([
-        [0, 0, 0, 0, 0],
-        [0, 0, 1, 1, 0],
-        [0, 1, 1, 0, 0],
-        [0, 0, 0, 1, 0],
-        [0, 0, 0, 0, 0],
-    ])
-    expected = np.array([
-        [0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0],
-        [0, 1, 0, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 0],
-    ])
-    ok_(
-        np.array_equal(live(space), expected),
-        "Glider should fly to corner"
-    )
-
